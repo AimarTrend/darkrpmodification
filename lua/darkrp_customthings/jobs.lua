@@ -30,7 +30,30 @@ GAMEMODE.CivilProtection = {
     [TEAM_POLICE] = true,
     [TEAM_CHIEF] = true,
     [TEAM_MAYOR] = true,
-}
+}--[[
+    Generated using: DarkRP | Job Generator
+    https://csite.io/tools/gmod-darkrp-job
+--]]
+TEAM_POLICE = DarkRP.createJob("Police Officer", {
+    color = ,
+    model = {"models/player/magnusson.mdl"},
+    description = [[You fight crimes, arrest criminals and guard the prison]],
+    weapons = {"weapon_shotgun", "weapon_fist"},
+    command = "OfficerDuty",
+    max = 2,
+    salary = 467,
+    admin = 2,
+    vote = false,
+    hasLicense = true,
+    candemote = false,
+    medic = true,
+    cook = true,
+    NeedToChangeFrom = TEAM_POLICE,
+    customCheck = function(ply) return
+        table.HasValue({TEAM_MOB}, ply:Team())
+    end,
+    CustomCheckFailMsg = "GOODBYE",
+})
 --[[---------------------------------------------------------------------------
 Jobs that are hitmen (enables the hitman menu)
 ---------------------------------------------------------------------------]]
